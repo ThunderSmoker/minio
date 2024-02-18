@@ -46,3 +46,8 @@ func (o *Operations) ModifyFile(bucketName, objectName, content string) error {
     _, err := o.minioClient.PutObject(ctx, bucketName, objectName, strings.NewReader(content), int64(len(content)), minio.PutObjectOptions{})
     return err
 }
+func (o *Operations) DeleteFile(bucketName, objectName string) error {
+	ctx := context.Background()
+	err := o.minioClient.RemoveObject(ctx, bucketName, objectName, minio.RemoveObjectOptions{})
+	return err
+}
