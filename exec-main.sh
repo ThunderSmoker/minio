@@ -6,6 +6,5 @@ if [ $# -eq 0 ]; then
   exit 1
 fi
 
-# Run main.go with the provided command-line arguments
-cd /minio-project
+
 go run main.go
